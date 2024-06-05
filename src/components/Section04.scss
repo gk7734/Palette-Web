@@ -1,0 +1,104 @@
+.con4-container {
+  position: relative;
+  width: 100%;
+  height: 210vh;
+
+  .con4-mainText {
+    margin-top: 100px;
+    font-size: 62px;
+    font-family: Letter, serif;
+    text-align: center;
+  }
+
+  .mockBox {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 200px;
+    .mock-1 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      width: 50%;
+      height: 725px;
+      margin: 0;
+      background: rgb(18,0,36);
+      background: -moz-linear-gradient(95deg, rgba(18,0,36,1) 0%, rgba(21,9,121,1) 30%, rgba(0,212,255,1) 100%);
+      background: -webkit-linear-gradient(95deg, rgba(18,0,36,1) 0%, rgba(21,9,121,1) 30%, rgba(0,212,255,1) 100%);
+      background: linear-gradient(95deg, rgba(18,0,36,1) 0%, rgba(21,9,121,1) 30%, rgba(0,212,255,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120024",endColorstr="#00d4ff",GradientType=1);
+      border-radius: 25px;
+      
+      .bento.a {
+        align-self: center;
+        justify-self: center;
+        margin-left: 40px;
+        width: 95%;
+        height: 90%;
+        background: rgba( 255, 255, 255, 0.1 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 5px );
+        -webkit-backdrop-filter: blur( 5px );
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .bento.b {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+
+        .bento.sub {
+          align-self: center;
+          justify-self: center;
+          margin-left: 15px;
+          margin-bottom: 40px;
+          width: 92%;
+          height: 90%;
+          background: rgba( 255, 255, 255, 0.1 );
+          box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+          backdrop-filter: blur( 5px );
+          -webkit-backdrop-filter: blur( 5px );
+          border-radius: 10px;
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          grid-row-start: 2;
+        }
+
+        .bento.c {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin-left: 42px;
+          .bento.d {
+            align-self: center;
+            width: 93.5%;
+            height: 80%;
+            background: rgba( 255, 255, 255, 0.1 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 5px );
+            -webkit-backdrop-filter: blur( 5px );
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+    }
+  }
+  .subText-container {
+    display: grid;
+    justify-content: center;
+    margin-top: 200px;
+
+    .subText {
+      display: flex;
+      font-size: 72px;
+      font-family: Pretendard;
+      font-weight: bold;
+      text-align: start;
+    }
+
+    .subText.b {
+      background: #043344;
+      background: linear-gradient(to right, #043344 0%, #4762F5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

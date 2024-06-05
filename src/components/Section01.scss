@@ -1,0 +1,30 @@
+.con1 {
+  background: #000;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: 1px solid gray;
+
+  .text-container {
+    justify-content: center;
+    display: flex;
+    margin-top: 20%;
+
+    .home-hero-text {
+      display: flex;
+      span {
+        opacity: 1;
+        font-size: 180px;
+        line-height: 280px;
+        letter-spacing: -1px;
+        font-family: Letter;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .cusBtn {
+    display: flex;
+    justify-content: end;
+  }
+}
