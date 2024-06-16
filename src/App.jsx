@@ -5,12 +5,6 @@ import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
 import Navbar from "./components/Navbar.jsx";
 import Section02 from "./components/Section02.jsx";
-import {Section03} from "./components/Section03.jsx";
-import {Card} from "./components/Card.jsx";
-import img1 from './assets/card-1.jpeg'
-import img2 from './assets/card-2.jpeg'
-import img3 from './assets/card-3.jpeg'
-import img4 from './assets/card-4.jpeg'
 import {Section04} from "./components/Section04.jsx";
 
 function App() {

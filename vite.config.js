@@ -6,9 +6,9 @@ import compression from "vite-plugin-compression2";
 export default defineConfig({
     plugins: [
         react(),
-        // compression({
-        //     include: [/\.(js)$/, /\.(css)$/],
-        //     threshold: 1400,
-        // })
+        compression({
+            include: [/\.(js)$/, /\.(css)$/],
+            threshold: 1400,
+        })
     ],
 })

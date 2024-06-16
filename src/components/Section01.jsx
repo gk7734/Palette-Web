@@ -2,6 +2,8 @@ import './Section01.scss';
 import {gsap} from 'gsap';
 import {useGSAP} from "@gsap/react";
 import Con1Btn from "./Con1Btn.jsx";
+import Lottie from "lottie-react";
+import Arrow from '../assets/arrow.json'
 
 const Section01 = () => {
 
@@ -115,6 +117,7 @@ const Section01 = () => {
         tl.fromTo(".cusBtn", {
             opacity: 0,
             y: -300,
+            x: 10,
         }, {
             opacity: 1,
             delay: 0.2,
@@ -161,6 +164,9 @@ const Section01 = () => {
             </div>
             <div className={`cusBtn`}>
                 <Con1Btn />
+            </div>
+            <div style={{ width: '110px', transform: 'translateX(48vw)' }}>
+                <Lottie animationData={Arrow} loop={true} width={10} height={20}/>
             </div>
         </section>
     );

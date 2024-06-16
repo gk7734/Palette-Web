@@ -1,4 +1,4 @@
-import logo from '../assets/Images/img.png'
+import logo from '../assets/Images/img.webp'
 import { motion } from "framer-motion";
 import './Navbar.scss'
 import NavLi from "./Nav-li.jsx";
@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav className={`nav-container`}>
             <ul>
                 <li>
-                    <a href={'/home'}><img src={logo} alt='pallte-logo' width={220}/></a>
+                    <a href={'/home'}><img src={logo} alt='pallte-logo' width={220} height={45}/></a>
                 </li>
                 <div className={`nav-text`}>
                     <motion.div whileHover={{ scale: 1.25 }}><NavLi url={'#'} title={'소개'} /></motion.div>

@@ -17,7 +17,7 @@ const Section02 = () => {
             }
         }).fromTo('.con2-mainText', {
             opacity: 0,
-            x: -200
+            x: -150
         }, {
             opacity: 1,
             x: 0,

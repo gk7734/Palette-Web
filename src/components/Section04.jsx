@@ -22,6 +22,19 @@ export const Section04 = () => {
             }
         })
 
+        const tlBg1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.con4-container',
+                start: 'bottom bottom',
+                end: 'bottom bottom',
+                // markers: true,
+                onEnter: () => gsap.to('.con4-container', {duration: 0.6, ease: 'none', background: '#000', color: '#fff'}),
+                onEnterBack: () => gsap.to('.con4-container', {duration: 0.6, ease: 'none', background: '#fff', color: '#000'}),
+            }
+        })
+
+
+
         tlBg.fromTo('.con4-container', {
             background: '#000',
         }, {
@@ -92,6 +105,15 @@ export const Section04 = () => {
             delay: 2,
             text: subTextGradient,
             duration: 1,
+            ease: 'none'
+        })
+
+        tlBg1.fromTo('.con4-container', {
+            background: '#fff',
+        }, {
+            background: '#000',
+            color: '#fff',
+            duration: 0.6,
             ease: 'none'
         })
     }, [])
