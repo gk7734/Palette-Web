@@ -1,11 +1,16 @@
 import './App.scss'
-import Section01 from "./components/Section01.jsx";
-import {gsap} from "gsap";
-import {useGSAP} from "@gsap/react";
-import {useRef} from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Suspense, useRef, lazy } from "react";
 import Navbar from "./components/Navbar.jsx";
-import Section02 from "./components/Section02.jsx";
-import {Section04} from "./components/Section04.jsx";
+import { ScrollTo } from "./components/ScrollTo.jsx";
+
+// 동적 임포트로 변경
+const Section01 = lazy(() => import("./components/Section01.jsx"));
+const Section02 = lazy(() => import("./components/Section02.jsx"));
+const Section04 = lazy(() => import("./components/Section04.jsx").then(module => ({ default: module.Section04 })));
+const Section05 = lazy(() => import("./components/Section05.jsx").then(module => ({ default: module.Section05 })));
+const Section06 = lazy(() => import("./components/Section06.jsx").then(module => ({ default: module.Section06 })));
 
 function App() {
     const curRef = useRef(null)
@@ -15,9 +20,9 @@ function App() {
         })
 
         window.addEventListener('mousemove', e => {
-            gsap.to(curRef.current,{
-                x:e.clientX,
-                y:e.clientY,
+            gsap.to(curRef.current, {
+                x: e.clientX,
+                y: e.clientY,
                 duration: 0.3,
             })
         })
@@ -26,10 +31,15 @@ function App() {
     return (
         <main>
             <Navbar />
-            <Section01/>
-            <Section02/>
-            {/*<Section03 />*/}
-            <Section04 />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Section01 />
+                <Section02 />
+                {/*<Section03 />*/}
+                <ScrollTo />
+                <Section04 />
+                <Section05 />
+                <Section06 />
+            </Suspense>
             {/*<div className={"cursor"} ref={curRef}/>*/}
         </main>
     )

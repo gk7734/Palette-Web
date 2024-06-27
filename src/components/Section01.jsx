@@ -1,13 +1,18 @@
 import './Section01.scss';
-import {gsap} from 'gsap';
-import {useGSAP} from "@gsap/react";
 import Con1Btn from "./Con1Btn.jsx";
-import Lottie from "lottie-react";
 import Arrow from '../assets/arrow.json'
+import {useRef} from "react";
+import { useGSAP } from "@gsap/react";
+import Lottie from "lottie-react";
+import {gsap} from "gsap";
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 
 const Section01 = () => {
+    const arrowDownRef = useRef(null);
 
-    useGSAP(() => {
+    useGSAP( async () => {
+        gsap.registerPlugin(ScrollToPlugin)
+
         const tl = gsap.timeline();
         tl.fromTo('#P', {
             opacity: 0,
@@ -124,8 +129,16 @@ const Section01 = () => {
             y: -250,
             duration: 1
         })
-
     }, []);
+
+    const clickHandler = (e) => {
+        e.preventDefault();
+        gsap.to(window, {
+            scrollTo: '.con2-container',
+            duration: 1,
+            overwrite: "auto"
+        })
+    }
 
     return (
         <section className="con1">
@@ -165,7 +178,7 @@ const Section01 = () => {
             <div className={`cusBtn`}>
                 <Con1Btn />
             </div>
-            <div style={{ width: '110px', transform: 'translateX(48vw)' }}>
+            <div ref={arrowDownRef} style={{ width: '110px', transform: 'translateX(48vw)', cursor: 'pointer' }} onClick={clickHandler}>
                 <Lottie animationData={Arrow} loop={true} width={10} height={20}/>
             </div>
         </section>

@@ -1,9 +1,10 @@
-.con4-container {
+.con5-container {
   position: relative;
   width: 100%;
-  height: 210vh;
+  height: 225vh;
+  background: #000000;
 
-  .con4-mainText {
+  .con5-mainText {
     margin-top: 100px;
     font-size: 62px;
     font-family: Letter, serif;
@@ -27,7 +28,7 @@
       background: linear-gradient(95deg, rgba(18,0,36,1) 0%, rgba(21,9,121,1) 30%, rgba(0,212,255,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120024",endColorstr="#00d4ff",GradientType=1);
       border-radius: 25px;
-
+      
       .bento.a {
         align-self: center;
         justify-self: center;
@@ -81,7 +82,7 @@
       }
     }
   }
-  .subText-container {
+  .subText-container1 {
     display: grid;
     justify-content: center;
     margin-top: 200px;

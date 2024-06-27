@@ -1,10 +1,10 @@
 import logo from '../assets/Images/img.webp'
-import { motion } from "framer-motion";
 import './Navbar.scss'
 import NavLi from "./Nav-li.jsx";
+import {motion} from "framer-motion";
 import {useGSAP} from "@gsap/react";
-import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {gsap} from "gsap";
 
 const Navbar = () => {
     useGSAP(() => {
