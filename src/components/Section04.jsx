@@ -1,6 +1,12 @@
 import './Section04.scss'
 import {useGSAP} from "@gsap/react";
+import flowImg from "../assets/Images/TkVFroPdpV@1x.png"
+import posImg from "../assets/Images/pos.png"
+import posImg1 from "../assets/Images/pos2.png"
+import posImg2 from "../assets/Images/pos3.png"
+import logo from "../assets/Images/img.png"
 import {gsap} from "gsap";
+import {animateBackground, createScrollTrigger} from "./utils.js";
 
 export const Section04 = () => {
     useGSAP(async () => {
@@ -11,31 +17,20 @@ export const Section04 = () => {
 
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+        gsap.to('.con4-container', {
+            scrollTrigger: {
+                trigger: '.con4-container',
+                start: '300px bottom',
+                end: '300px top',
+                // markers: true,
+                onEnter: () => gsap.to('.scroll-container', { opacity: 1,duration: 0.6}),
+            }
+        });
+
         const subText = `Create beautiful promotional <br/>
                    experiences and customer <br/>
                    journeys with powerful,`;
         const subTextGradient = `easy-to-build workflows`;
-
-        gsap.registerPlugin(ScrollTrigger, TextPlugin);
-
-        const createScrollTrigger = (trigger, config) => ({
-            trigger,
-            start: 'top bottom',
-            end: 'top top',
-            ...config
-        });
-
-        const animateBackground = (timeline, element, fromColor, toColor, scrollTriggerConfig) => {
-            timeline.fromTo(element,
-                { background: fromColor },
-                {
-                    background: toColor,
-                    duration: 1,
-                    ease: 'none',
-                    scrollTrigger: createScrollTrigger(element, scrollTriggerConfig)
-                }
-            );
-        };
 
         // Background animations
         const tlBg = gsap.timeline();
@@ -104,12 +99,20 @@ export const Section04 = () => {
             <h1 className={'con4-mainText'}>Workflow</h1>
             <div className={`mockBox`}>
                 <div className={`mock-1`}>
-                    <div className={`bento a`}></div>
+                    <div className={`bento a`} style={{ justifyContent: 'center' ,display: "flex", alignItems: "center" }}><img src={flowImg} alt={'flow'} width={300} /></div>
                     <div className={`bento b`}>
-                        <div className={`bento sub`}></div>
+                        <div className={`bento sub`} style={{ justifyContent: 'center', display: "flex", alignItems: "center", gap: 30 }}>
+                            <img src={posImg} width={200}/>
+                            <img src={posImg1} width={200}/>
+                            <img src={posImg2} width={200}/>
+                        </div>
                         <div className={`bento c`}>
-                            <div className={`bento d`}></div>
-                            <div className={`bento d`}></div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                <img src={logo} alt="flow" width={200} height={200}/>
+                            </div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                <h1 style={{ fontSize: 48, color: "white" }}>𝐌𝐚𝐤𝐞 <br /> 𝐘𝐨𝐮𝐫 <br /> 𝐌𝐚𝐬𝐭𝐞𝐫𝐩𝐢𝐞𝐜𝐞</h1>
+                            </div>
                         </div>
                     </div>
                 </div>

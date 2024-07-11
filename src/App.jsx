@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { Suspense, useRef, lazy } from "react";
 import Navbar from "./components/Navbar.jsx";
 import { ScrollTo } from "./components/ScrollTo.jsx";
+import {Footer} from "./components/Footer.jsx";
 
 // 동적 임포트로 변경
 const Section01 = lazy(() => import("./components/Section01.jsx"));
@@ -30,8 +31,8 @@ function App() {
 
     return (
         <main>
-            <Navbar />
             <Suspense fallback={<div>Loading...</div>}>
+                <Navbar />
                 <Section01 />
                 <Section02 />
                 {/*<Section03 />*/}
@@ -39,6 +40,7 @@ function App() {
                 <Section04 />
                 <Section05 />
                 <Section06 />
+                <Footer />
             </Suspense>
             {/*<div className={"cursor"} ref={curRef}/>*/}
         </main>

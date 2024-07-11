@@ -24,9 +24,9 @@ const Navbar = () => {
                     // 위로 스크롤 중
                     gsap.to("nav", { y: 0, duration: 0.8, ease: "power2.out" });
                 }
-
                 lastScrollY = currentScrollY;
-            }
+            },
+            // markers: true
         });
     }, [])
 

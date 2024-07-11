@@ -1,113 +1,120 @@
 import './Section05.scss'
 import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {TextPlugin} from  "gsap/TextPlugin"
+import pos4 from "../assets/Images/pos4.png"
+import chat from "../assets/Images/Chat@1x.png"
+import drow from "../assets/Images/Edit@1x.png"
+import {animateBackground, createScrollTrigger} from "./utils.js";
+import logo from "../assets/Images/img.png";
+import flowImg from "../assets/Images/TkVFroPdpV(1)@1x.png";
 
 export const Section05 = () => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(TextPlugin);
-    useGSAP(() => {
-        let subText = `Create beautiful promotional <br/>
-                    experiences and customer <br/>
-                    journeys with powerful,`
-        let subTextGradient = `easy-to-build workflows`
+    useGSAP(async () => {
+        const [ScrollTrigger, TextPlugin] = await Promise.all([
+            import("gsap/ScrollTrigger").then(m => m.ScrollTrigger),
+            import("gsap/TextPlugin").then(m => m.TextPlugin)
+        ]);
 
-        const tlBg1 = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.con4-container',
-                start: 'bottom bottom',
-                end: 'bottom bottom',
-                // markers: true,
-                onEnter: () => gsap.to('.con4-container', {duration: 0.6, ease: 'none', background: '#000', color: '#fff'}),
-                onEnterBack: () => gsap.to('.con4-container', {duration: 0.6, ease: 'none', background: '#fff', color: '#000'}),
-            }
-        })
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        gsap.to('.nav-container a', {
+        const subText = `Create beautiful promotional <br/>
+                   experiences and customer <br/>
+                   journeys with powerful,`;
+        const subTextGradient = `easy-to-build workflows`;
+
+        // Background animations
+        const tlBg = gsap.timeline();
+        const tlColor = gsap.timeline({
             scrollTrigger: {
                 trigger: '.con5-container',
-                // markers: true,
-                start: 'top top',
+                start: 'top bottom',
                 end: 'top top',
-                scrub: 0,
-            },
-            duration: 0.4,
-            ease: 'power3.in',
-            color: '#000',
-        })
-
-        gsap.fromTo('.con5-mainText', {
-            y: 100, // 시작 위치 (아래)
-            opacity: 0, // 시작 투명도
-        }, {
-            y: 0, // 최종 위치 (원래 위치)
-            opacity: 1, // 최종 투명도
-            duration: 0.75, // 애니메이션 지속 시간
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '.con5-mainText',
-                start: 'top 90%', // 스크롤 시작 지점
-                end: 'top 20%', // 스크롤 종료 지점
+                // markers: true
             }
         });
-        gsap.to('.subText-container1 .subText.a', {
-            scrollTrigger: {
-                trigger: '.subText-container1 .subText.a',
-                start:'220px bottom',
-                end: '220px bottom',
-                // markers: true
-            },
-            text: subText,
-            duration: 2,
-            ease: 'none'
-        })
-        gsap.to('.subText-container1 .subText.b', {
-            scrollTrigger: {
-                trigger: '.subText-container1 .subText.b',
-                start:'220px bottom',
-                end: '220px bottom',
-                markers: true
-            },
-            delay: 2,
-            text: subTextGradient,
-            duration: 1,
-            ease: 'none'
-        })
-
-        tlBg1.fromTo('.con5-container', {
-            background: '#fff',
-        }, {
-            background: '#000',
+        tlColor.to('.con5-container', {
             color: '#fff',
-            duration: 0.5,
-            ease: 'none'
+            duration: 0.6,
         })
+        animateBackground(tlBg, '.con5-container', '#fff', '#000');
 
+        // Navigation color change
+        gsap.to('.nav-container a', {
+            scrollTrigger: createScrollTrigger('.con5-container', { scrub: 0 }),
+            duration: 0.4,
+            ease: 'power3.in',
+            color: '#fff',
+        });
+
+        // Main text animation
+        gsap.fromTo('.con5-mainText',
+            { y: 100, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.75,
+                ease: 'power3.out',
+                scrollTrigger: createScrollTrigger('.con5-mainText', { start: 'top 90%', end: 'top 20%' })
+            }
+        );
+
+        // Mock-up animation
         gsap.to('.con5-container .mock-1', {
             scrollTrigger: {
                 trigger: '.con5-container .mock-1',
-                start: '30% bottom', // 스크롤 시작 지점
-                end: 'bottom 100px', // 스크롤 종료 지점
+                start: '30% bottom',
+                end: 'bottom 100px',
                 onEnter: () => gsap.to('.con5-container .mock-1', {duration: 1, ease: 'power2.out', width: '85%'}),
                 onLeave: () => gsap.to('.con5-container .mock-1', {duration: 0.8, ease: 'power2.in', width: '55%', y: -90}),
                 onEnterBack: () => gsap.to('.con5-container .mock-1', {duration: 0.8, ease: 'power2.in', width: '85%', y: 0}),
             },
             ease: 'power2.out',
-        })
-    }, [])
+        });
 
+        // Subtext animations
+        const animateSubText = (element, text, delay = 0) => {
+            gsap.to(element, {
+                scrollTrigger: createScrollTrigger(element, { start: '220px bottom', end: '220px bottom' }),
+                text,
+                duration: delay ? 1 : 2,
+                delay,
+                ease: 'none'
+            });
+        };
+
+        animateSubText('.subText-container1 .subText.a', subText);
+        animateSubText('.subText-container1 .subText.b', subTextGradient, 2);
+
+        // Final background change
+        gsap.to('.con5-container', {
+            scrollTrigger: {
+                trigger: '.con5-container',
+                start: 'bottom bottom',
+                end: 'bottom bottom',
+                onEnter: () => gsap.to('.con5-container', {duration: 0.6, ease: 'none', background: '#fff', color: '#000'}),
+                onEnterBack: () => gsap.to('.con5-container', {duration: 0.6, ease: 'none', background: '#000', color: '#fff'}),
+            }
+        });
+    });
     return (
         <section className={`con5-container`}>
             <h1 className={'con5-mainText'}>Functions</h1>
             <div className={`mockBox`}>
                 <div className={`mock-1`}>
-                    <div className={`bento a`}></div>
+                    <div className={`bento a`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                        <img src={flowImg} alt={'flow'} width={300}/>
+                    </div>
                     <div className={`bento b`}>
-                        <div className={`bento sub`}></div>
+                        <div className={`bento sub`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                            <h1 style={{fontSize: 60, color: "white"}}>𝐄𝐧𝐝𝐥𝐞𝐬𝐬 𝐩𝐫𝐨𝐟𝐢𝐭𝐬 <br /> 𝐟𝐫𝐨𝐦 𝐲𝐨𝐮𝐫 𝐜𝐫𝐞𝐚𝐭𝐢𝐯𝐢𝐭𝐲</h1>
+                        </div>
                         <div className={`bento c`}>
-                            <div className={`bento d`}></div>
-                            <div className={`bento d`}></div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                <img src={chat} alt="flow" width={300}/>
+                            </div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                            <img src={drow} alt="flow" width={230}/>
+                            </div>
                         </div>
                     </div>
                 </div>
