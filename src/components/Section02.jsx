@@ -68,7 +68,7 @@ const Section02 = () => {
         <section className={`con2-container`}>
             <h1 className={`con2-mainText`}>Palette 왜 사용할까요?</h1>
             <div className={`con2-subTextBox`}>
-                <h2 className={`subText`}>Lorem ipsum dolor sit amet, <span id={'h-1'}>consectetur</span> adipisicing elit. Asperiores <span id={'h-2'}>dolores</span> expedita iste minima quaerat quo. Ab corporis fuga itaque minus.</h2>
+                <h2 className={`subText`}>Palette는 간편한 인터페이스로 <span className={'h-1'}>누구나 쉽고 빠르게</span> 고품질의 포스터를 제작 눈길을 사로잡는 복잡한 도구 없이도 전문가 수준의 결과물 시간과 비용을 절약할 수 있습니다.</h2>
             </div>
         </section>
     )

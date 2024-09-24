@@ -31,11 +31,10 @@ export const Footer = () => {
                         <h1>Team</h1>
                         <h2>우리의 서비스</h2>
                         <h2 className={`about`}>Team.API에 대하여</h2>
-                        <h2>개인정보 처리 방침</h2>
-                        <h2>제3자 제공 동의서</h2>
+                        <a href={'https://www.notion.so/dgsw-team-api/cc32c87f614e4798893293abfe5ca72a'} style={{textDecoration: 'none', color: 'white', textDecorationLine: 'underline'}}><h2>개인정보 처리 방침</h2></a>
                     </div>
                     <div className={`about-2`}>
-                        <h1>Contect</h1>
+                        <h1>Contact</h1>
                         <h2 className={`email`}>contect@api.ai</h2>
                         <h2 className={`phone`}>+82 10-2296-7428</h2>
                         <h2 className={`map`}>대구광역시 달성군 구지면 창리로 11길 93</h2>

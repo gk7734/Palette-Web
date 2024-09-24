@@ -102,9 +102,9 @@ export const Section04 = () => {
                     <div className={`bento a`} style={{ justifyContent: 'center' ,display: "flex", alignItems: "center" }}><img src={flowImg} alt={'flow'} width={300} /></div>
                     <div className={`bento b`}>
                         <div className={`bento sub`} style={{ justifyContent: 'center', display: "flex", alignItems: "center", gap: 30 }}>
-                            <img src={posImg} width={200}/>
-                            <img src={posImg1} width={200}/>
-                            <img src={posImg2} width={200}/>
+                            <img src={posImg} width={200} style={{ borderRadius: 15, }}/>
+                            <img src={posImg1} width={200} style={{ borderRadius: 15, }}/>
+                            <img src={posImg2} width={200} style={{ borderRadius: 15, }}/>
                         </div>
                         <div className={`bento c`}>
                             <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>

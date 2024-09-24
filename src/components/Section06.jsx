@@ -3,6 +3,7 @@ import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {TextPlugin} from  "gsap/TextPlugin"
+import update from "../assets/Images/RefreshArrow@1x.png"
 import {animateBackground, createScrollTrigger} from "./utils.js";
 
 export const Section06 = () => {
@@ -14,10 +15,9 @@ export const Section06 = () => {
 
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        const subText = `Create beautiful promotional <br/>
-                   experiences and customer <br/>
-                   journeys with powerful,`;
-        const subTextGradient = `easy-to-build workflows`;
+        const subText = `Build eye-catching <br /> posters and impactful<br/>
+                   visuals with effortless,`;
+        const subTextGradient = `streamlined design <br /> experience in Palette`;
 
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -78,12 +78,20 @@ export const Section06 = () => {
             <h1 className={'con6-mainText'}>Experiences</h1>
             <div className={`mockBox`}>
                 <div className={`mock-1`}>
-                    <div className={`bento a`}></div>
+                    <div className={`bento a`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                        <img src={update} width={300} />
+                    </div>
                     <div className={`bento b`}>
-                        <div className={`bento sub`}></div>
+                        <div className={`bento sub`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                            <img src={update} width={300} />
+                        </div>
                         <div className={`bento c`}>
-                            <div className={`bento d`}></div>
-                            <div className={`bento d`}></div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                <img src={update} width={300} />
+                            </div>
+                            <div className={`bento d`} style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                <img src={update} width={300} />
+                            </div>
                         </div>
                     </div>
                 </div>

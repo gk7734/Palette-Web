@@ -17,10 +17,9 @@ export const Section05 = () => {
 
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        const subText = `Create beautiful promotional <br/>
-                   experiences and customer <br/>
-                   journeys with powerful,`;
-        const subTextGradient = `easy-to-build workflows`;
+        const subText = `Build stunning posters <br > and captivating<br/>
+                    visuals with simple,`;
+        const subTextGradient = `intuitive design tools in Palette`;
 
         // Background animations
         const tlBg = gsap.timeline();
